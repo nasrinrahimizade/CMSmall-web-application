@@ -1,0 +1,97 @@
+
+
+###
+// GET /api/pages/3/blocks
+GET http://localhost:3001/api/pages/3/blocks
+
+### Execute Log In
+POST http://localhost:3001/api/sessions HTTP/1.1
+content-type: application/json
+
+{
+    "username": "luigi@polito.it",
+    "password": "testtest"
+}
+
+### Checking if user is still logged-in.
+GET http://localhost:3001/api/sessions/current HTTP/1.1
+###
+
+## Execute Log Out.
+DELETE http://localhost:3001/api/sessions/current HTTP/1.1
+###
+
+### Deletes page.
+DELETE http://localhost:3001/api/pages/7 HTTP/1.1
+###
+
+
+### Create new page 
+POST http://localhost:3001/api/pages/addPage HTTP/1.1
+content-type: application/json
+
+{   "title": "my test page", 
+    "authorId": 7, 
+    "author":"Luigi",
+    "creationDate":"2023-06-20", 
+    "publicationDate":"2023-06-21"
+    
+}
+###
+
+
+
+## Updates a page.
+PUT http://localhost:3001/api/pages/8/updatePage HTTP/1.1
+content-type: application/json
+
+{
+    "id" : 8, 
+    "title": "laptop",
+    "authorId": 7,
+    "author": "Luigi",
+    "creationDate": "2023-06-18",
+    "publicationDate" : "2023-06-21"
+}
+###
+
+###
+// GET /api/users
+GET http://localhost:3001/api/users
+
+
+###
+// GET /api/pagename
+GET http://localhost:3001/api/pagename
+
+
+### Updates a website name.
+PUT http://localhost:3001/api/pagename HTTP/1.1
+content-type: application/json
+
+{
+    "name" : "updated name" 
+}
+###
+
+### Deletes blocks.
+DELETE http://localhost:3001/api/pages/4/blocks HTTP/1.1
+###
+
+
+
+### Create new block 
+POST http://localhost:3001/api/pages/1/blocks HTTP/1.1
+content-type: application/json
+
+{   "type" : "header",
+    "context" : "let's test",
+    "imageId": "",
+    "order" : 4
+    
+}
+###
+
+###
+// GET /api/pages/<id>/blocksonly
+GET http://localhost:3001/api/pages/1/blocksonly
